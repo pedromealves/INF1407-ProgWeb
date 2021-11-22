@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
+</head>
+<body>
+    <h1>Lista de Reservas Efetuadas</h1>
+    <table>
+        <tr>
+            <th>
+                Reserva
+            </th>
+        </tr>
+        {% for reserva in reservas %}
+        <tr>
+            <td>
+                Data de entrada: {{reserva.dataEntrada}}
+                Data de saída: {{reserva.dataSaida}}
+                Horário de entrada: {{reserva.horarioEntrada}}
+                Horário de saída: {{reserva.horarioSaida}}
+            </td>
+        </tr>
+        {% empty %}
+            <h3>Não há nenhuma reserva efetuada</h3>
+        {% endfor %}
+    </table>
+</body>
+</html>
