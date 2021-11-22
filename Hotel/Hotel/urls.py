@@ -15,10 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from HotelApp import views
+from django.urls.conf import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.HomeCreateView.as_view(), name = 'homepage'), 
-    path('cadastro/', views.UsuarioCreateView.as_view(), name='cadastro-contato'),
+    path('', include('HotelApp.urls')),
 ]

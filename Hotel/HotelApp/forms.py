@@ -1,8 +1,8 @@
 from django.db.models import fields
 from django import forms
-from HotelApp.models import Usuario
+from HotelApp.models import Reserva
 
-class UsuarioModel2Form(forms.ModelForm):
+class ReservaModel2Form(forms.ModelForm):
     class Meta:
-        model = Usuario
+        model = Reserva
         fields = '__all__'
