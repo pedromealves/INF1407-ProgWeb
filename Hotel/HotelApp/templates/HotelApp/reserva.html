@@ -7,7 +7,17 @@
     <title>Reservas</title>
 </head>
 <body>
+    
+    {% if request.user.is_authenticated %}
+        <p>{{request.user}}</p>
+        <a href="{% url 'HotelApp:logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'HotelApp:login' %}">Login</a>
+    {% endif %}
+    <hr>
     <h1>Lista de Reservas Efetuadas</h1>
+    <a href="{% url 'HotelApp:reserva-criar' %}">Criar nova reserva</a>
+
     <table>
         <tr>
             <th>
@@ -21,6 +31,9 @@
                 Data de saída: {{reserva.dataSaida}}
                 Horário de entrada: {{reserva.horarioEntrada}}
                 Horário de saída: {{reserva.horarioSaida}}
+                <a href="{% url 'HotelApp:reserva-detalhes' pk=reserva.id %}">Detalhes</a>
+                <a href="{% url 'HotelApp:reserva-editar' pk=reserva.id %}">Editar</a>
+                <a href="{% url 'HotelApp:reserva-deletar' pk=reserva.id %}">Excluir</a>
             </td>
         </tr>
         {% empty %}
