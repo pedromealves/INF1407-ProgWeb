@@ -19,20 +19,3 @@ urlpatterns = [
     path('reserva_editar/<int:pk>/', views.ReservaUpdate.as_view(), name = 'reserva-editar'),
     path('reserva_deletar/<int:pk>/', views.ReservaDelete.as_view(), name = 'reserva-deletar'),
 ]
-
-"""
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.HomeCreateView.as_view(), name = 'homepage'), 
-    path('cadastro/', views.UsuarioCreateView.as_view(), name='cadastro-contato'),
-]
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.HomeCreateView.as_view(), name = 'homepage'), 
-    path('cadastro/', views.UsuarioCreateView.as_view(), name='cadastro-contato'),
-]
-
-
-"""
