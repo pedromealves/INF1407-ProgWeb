@@ -12,9 +12,88 @@
     <form action="" method="POST">
         {% csrf_token %}
         <table>
-            {{ form.as_table }}
+            <tr>
+                <td>
+                    Data de Entrada <input type="text" name="dataEntrada" id="dtEntrada"> <div id="dtEntradaReserva" style="display:inline-block;">{{ form.dataEntrada.help_text }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Data de Saída <input type="text" name="dataSaida" id="dtSaida"> <div id="dtSaidaReserva" style="display:inline-block;">{{ form.dataSaida.help_text }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Horário de Entrada <input type="text" name="horarioEntrada" id="hrEntrada"> <div id="hrEntradaReserva" style="display:inline-block;">{{ form.horarioEntrada.help_text }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Horário de Saída <input type="text" name="horarioSaida" id="hrSaida"> <div id="hrSaidaReserva" style="display:inline-block;">{{ form.horarioSaida.help_text }}</div>
+                </td>
+            </tr> 
         </table>
+        <p id="alertaUsuario"></p>
         <button type ="submit">Enviar</button>
     </form>
 </body>
+
+{% block javascript %}
+<script>
+    function entradasIguais(e){
+        // Recupera o campo
+        var campoHorarioEntrada = document.getElementById('hrEntrada');
+        var campoHorarioSaida = document.getElementById('hrSaida');
+        var campoDataEntrada = document.getElementById('dtEntrada');
+        var campoDataSaida = document.getElementById('dtSaida');
+
+        // Cria o objeto HTTP Request e abre conexão
+
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.open("GET", "{% url 'HotelApp:reserva-ajax' %}?hrEntrada=" +
+         encodeURIComponent(campoHorarioEntrada.value) + "&hrSaida=" +
+         encodeURIComponent(campoHorarioSaida.value) + "&dtEntrada=" +
+         encodeURIComponent(campoDataEntrada.value) + "&dtSaida=" +
+         encodeURIComponent(campoDataSaida.value)  
+         ,true);
+
+        // Função de callback
+
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
+                resposta = JSON.parse(xmlhttp.responseText);
+                console.log(resposta) 
+
+                if(resposta.hrIgual == 'True'){
+                    document.getElementById('alertaUsuario').innerHTML = "Campos de horário iguais para o mesmo dia. Por favor, altere os campos."
+                }
+                else{
+                    document.getElementById('alertaUsuario').innerHTML = ""
+                }
+            }
+        };
+
+        // Envia o Request
+        xmlhttp.send(null);
+    }
+
+    document.getElementById('hrEntrada').addEventListener('keyup', function(e){
+        entradasIguais(e)
+    });
+
+    document.getElementById('hrSaida').addEventListener('keyup', function(e){
+        entradasIguais(e)
+    });
+
+    document.getElementById('dtEntrada').addEventListener('keyup', function(e){
+        entradasIguais(e)
+    });
+
+    document.getElementById('dtSaida').addEventListener('keyup', function(e){
+        entradasIguais(e)
+    });
+</script>
+{% endblock %}
+
 </html>

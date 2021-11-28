@@ -18,6 +18,11 @@
     <h1>Lista de Reservas Efetuadas</h1>
     <a href="{% url 'HotelApp:reserva-criar' %}">Criar nova reserva</a>
 
+    <form method="GET">
+        <input id="dataEntrada" type="text" name="search-area" value="{{search_input}}">
+        <input type="submit" value="Search"> Procure reservas por meio das datas de entrada no formato AAAA-MM-DD
+    </form>
+
     <table>
         <tr>
             <th>
@@ -26,12 +31,12 @@
         </tr>
         {% for reserva in reservas %}
         <tr>
-            <td>
+            <td id="exibeData">
                 Data de entrada: {{reserva.dataEntrada}}
                 Data de saída: {{reserva.dataSaida}}
                 Horário de entrada: {{reserva.horarioEntrada}}
                 Horário de saída: {{reserva.horarioSaida}}
-                <a href="{% url 'HotelApp:reserva-detalhes' pk=reserva.id %}">Detalhes</a>
+                <!-- <a href="{% url 'HotelApp:reserva-detalhes' pk=reserva.id %}">Detalhes</a> -->
                 <a href="{% url 'HotelApp:reserva-editar' pk=reserva.id %}">Editar</a>
                 <a href="{% url 'HotelApp:reserva-deletar' pk=reserva.id %}">Excluir</a>
             </td>

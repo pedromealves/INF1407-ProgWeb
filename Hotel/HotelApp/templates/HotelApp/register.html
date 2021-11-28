@@ -6,20 +6,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
 </head>
 <body>
-    <h1>Login</h1>
+    <h1>Register</h1>
     <form action="" method="post">
         {% csrf_token %}
         <table>
             <form action="POST">
                 {% csrf_token %}
                 {{form.as_p}}
-                <input type="submit" value="Login">
+                <input type="submit" value="Register">
             </form>
         </table>
     </form>
-    <p>Ainda não pussui uma conta? <a href="{% url 'HotelApp:register' %}">Register</a></p>
+    <p>Já possui uma conta? <a href="{% url 'HotelApp:login' %}">Login</a></p>
 </body>
 </html>
