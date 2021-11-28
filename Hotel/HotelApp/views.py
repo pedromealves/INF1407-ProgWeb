@@ -141,7 +141,7 @@ class ReservaUpdate(LoginRequiredMixin, View):
         reserva = Reserva.objects.get(pk=pk)
         formulario = ReservaModel2FormCreate(instance=reserva)
         context = {'form': formulario, } # Coloca o registro recuperado do banco e coloca num formulário
-        return render(request, 'HotelApp/reserva_criar.html', context)
+        return render(request, 'HotelApp/reserva_editar.html', context)
 
     def post(self, request, pk, *args, **kwargs): # Recebe os dados de uma reserva e atualiza o banco de dados
         reserva = get_object_or_404(Reserva, pk=pk) # Pega a reserva ou retorna erro 404
@@ -163,8 +163,6 @@ class ReservaDelete(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):
         reserva = Reserva.objects.filter(pk=pk).delete()
         return HttpResponseRedirect(reverse_lazy("HotelApp:reservas-exibe"))
-
-
 
     
 # class UsuarioCreateView(View):
