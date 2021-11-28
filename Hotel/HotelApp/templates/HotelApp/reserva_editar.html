@@ -21,28 +21,6 @@
             <form action="" method="POST">
                 {% csrf_token %}
                 {{form.as_p}}
-                <!-- <table>
-                    <tr>
-                        <td style="padding-bottom: 20px;">
-                            Data de Entrada <input type="text" name="dataEntrada" id="dtEntrada"> <div id="dtEntradaReserva" style="display:inline-block;">{{ form.dataEntrada.help_text }}</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-bottom: 20px;">
-                            Data de Saída <input type="text" name="dataSaida" id="dtSaida"> <div id="dtSaidaReserva" style="display:inline-block;">{{ form.dataSaida.help_text }}</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-bottom: 20px;">
-                            Horário de Entrada <input type="text" name="horarioEntrada" id="hrEntrada"> <div id="hrEntradaReserva" style="display:inline-block;">{{ form.horarioEntrada.help_text }}</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Horário de Saída <input type="text" name="horarioSaida" id="hrSaida"> <div id="hrSaidaReserva" style="display:inline-block;">{{ form.horarioSaida.help_text }}</div>
-                        </td>
-                    </tr> 
-                </table> -->
                 <p id="alertaUsuario"></p>
                 <button class="button" type ="submit">Editar</button>
             </form>

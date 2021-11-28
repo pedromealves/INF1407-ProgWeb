@@ -1,7 +1,0 @@
-- Criação da homepage
-- Migração do banco (python3 manage.py migrate)
-- Criação de modelo de usuário e "python3 manage.py makemigrations"
-- Criação de forms.py  
-- Adição de STATICFILES_DIR em settings.py
-- python3 manage.py createsuperuser (admin / user@gmail.com / a12d23pass)
-- pedro / pdadmin20

@@ -56,29 +56,6 @@
                 
             {% endfor %}
         </div>
-
-        <!-- <table>
-            <tr>
-                <th>
-                    Reserva
-                </th>
-            </tr>
-            {% for reserva in reservas %}
-            <tr>
-                <td id="exibeData">
-                    Data de entrada: {{reserva.dataEntrada}}
-                    Data de saída: {{reserva.dataSaida}}
-                    Horário de entrada: {{reserva.horarioEntrada}}
-                    Horário de saída: {{reserva.horarioSaida}}
-                     <a href="{% url 'HotelApp:reserva-detalhes' pk=reserva.id %}">Detalhes</a> 
-                    <a href="{% url 'HotelApp:reserva-editar' pk=reserva.id %}">Editar</a>
-                    <a href="{% url 'HotelApp:reserva-deletar' pk=reserva.id %}">Excluir</a>
-                </td>
-            </tr>
-            {% empty %}
-                <h3>Não há nenhuma reserva efetuada</h3>
-            {% endfor %}
-        </table> -->
     </body>
     </html>
 {% endblock content %}
