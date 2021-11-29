@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_z0kx9ds760ximc%uwberyy2mv&f(m8!8&in4$z)7a8myquxx^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['reserva-hotel.herokuapp.com', 'localhost']
 
